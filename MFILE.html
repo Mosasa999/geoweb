@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study Notes Library</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f6ff;
+      color: #333;
+    }
+    header {
+      background: #0056b3;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 1.8em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #003f7f;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+    .container {
+      padding: 40px 20px 80px;
+    }
+    h2 {
+      color: #004080;
+    }
+    .folder {
+      margin-bottom: 40px;
+    }
+    .files {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .file-box {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+    }
+    .file-box img {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+    .file-name {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .buttons button {
+      margin: 5px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .preview-btn {
+      background: #008cff;
+      color: white;
+    }
+    .download-btn {
+      background: #00c851;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>My Study Notes Library</header>
+
+  <div class="container">
+    <div class="folder">
+      <h2>Geophysics</h2>
+      <div class="files">
+        <div class="file-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon">
+          <div class="file-name">Seismic_Survey.pdf</div>
+          <div class="buttons">
+            <button class="preview-btn" onclick="previewFile('files/Seismic_Survey.pdf')">Preview</button>
+            <a href="GP313_chapter1.pptx" download><button class="download-btn">Download</button></a>
+          </div>
+        </div>
+        <div class="file-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon">
+          <div class="file-name">Gravity_Methods.pdf</div>
+          <div class="buttons">
+            <button class="preview-btn" onclick="previewFile('files/Gravity_Methods.pdf')">Preview</button>
+            <a href="files/Gravity_Methods.pdf" download><button class="download-btn">Download</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder">
+      <h2>Mathematics</h2>
+      <div class="files">
+        <div class="file-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon">
+          <div class="file-name">Algebra_Notes.pdf</div>
+          <div class="buttons">
+            <button class="preview-btn" onclick="previewFile('files/Algebra_Notes.pdf')">Preview</button>
+            <a href="files/Algebra_Notes.pdf" download><button class="download-btn">Download</button></a>
+          </div>
+        </div>
+        <div class="file-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon">
+          <div class="file-name">Calculus_Shortcuts.pdf</div>
+          <div class="buttons">
+            <button class="preview-btn" onclick="previewFile('files/Calculus_Shortcuts.pdf')">Preview</button>
+            <a href="GP313_chap4.pptx" download><button class="download-btn">Download</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="folder">
+      <h2>Programming</h2>
+      <div class="files">
+        <div class="file-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon">
+          <div class="file-name">JavaScript_Basics.pdf</div>
+          <div class="buttons">
+            <button class="preview-btn" onclick="previewFile('files/JavaScript_Basics.pdf')">Preview</button>
+            <a href="files/JavaScript_Basics.pdf" download><button class="download-btn">Download</button></a>
+          </div>
+        </div>
+        <div class="file-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon">
+          <div class="file-name">Python_Tutorial.pdf</div>
+          <div class="buttons">
+            <button class="preview-btn" onclick="previewFile('files/Python_Tutorial.pdf')">Preview</button>
+            <a href="files/Python_Tutorial.pdf" download><button class="download-btn">Download</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 MOH'D SAID SALUM - Study Notes Library
+  </footer>
+
+  <script>
+    function previewFile(fileUrl) {
+      window.open(fileUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seismic Refraction Analyzer</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #e9f5ff;
+      padding: 30px;
+      color: #003366;
+    }
+
+    h2 {
+      text-align: center;
+      color: #004080;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 100, 200, 0.2);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #results {
+      margin-top: 20px;
+      font-size: 16px;
+      background: #f1f9ff;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #007bff;
+    }
+
+    canvas {
+      margin-top: 30px;
+      background: #fff;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Seismic Refraction Analyzer</h2>
+    
+    <label>Distances (m):</label>
+    <input type="text" id="distances" placeholder="e.g. 5,10,15,20,25,30">
+
+    <label>Arrival Times (ms):</label>
+    <input type="text" id="times" placeholder="e.g. 10,14,18,21,24,27">
+
+    <button onclick="plotGraph()">Plot & Analyze</button>
+
+    <div id="results"></div>
+
+    <canvas id="graph" width="700" height="400"></canvas>
+  </div>
+
+  <script>
+    function linearRegression(x, y) {
+      const n = x.length;
+      const sumX = x.reduce((a, b) => a + b, 0);
+      const sumY = y.reduce((a, b) => a + b, 0);
+      const sumXY = x.reduce((sum, xi, i) => sum + xi * y[i], 0);
+      const sumXX = x.reduce((sum, xi) => sum + xi * xi, 0);
+
+      const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+      const intercept = (sumY - slope * sumX) / n;
+
+      return { slope, intercept };
+    }
+
+    let chart;
+
+    function plotGraph() {
+      const x = document.getElementById("distances").value.split(',').map(Number);
+      const t = document.getElementById("times").value.split(',').map(Number);
+
+      if (x.length < 6 || t.length < 6) {
+        alert("Please enter at least 6 values for meaningful analysis.");
+        return;
+      }
+
+      const { slope: s1, intercept: i1 } = linearRegression(x.slice(0, 3), t.slice(0, 3));
+      const { slope: s2, intercept: i2 } = linearRegression(x.slice(-3), t.slice(-3));
+
+      const v1 = 1 / s1;
+      const v2 = 1 / s2;
+      const ti = i2;
+      const h = (ti * v1 * v2) / (2 * Math.sqrt(v2 ** 2 - v1 ** 2));
+
+      document.getElementById("results").innerHTML = `
+        <strong>Analysis Results:</strong><br>
+        v₁ (surface layer) = ${v1.toFixed(2)} m/ms<br>
+        v₂ (refractor layer) = ${v2.toFixed(2)} m/ms<br>
+        Intercept Time (t<sub>i</sub>) = ${ti.toFixed(2)} ms<br>
+        Estimated Depth to Refractor (h) = ${h.toFixed(2)} m
+      `;
+
+      // Prepare regression lines
+      const regLine1 = x.map(val => ({ x: val, y: s1 * val + i1 }));
+      const regLine2 = x.map(val => ({ x: val, y: s2 * val + i2 }));
+
+      const ctx = document.getElementById("graph").getContext("2d");
+
+      if (chart) chart.destroy();
+
+      chart = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [
+            {
+              label: 'Observed Data',
+              data: x.map((val, i) => ({ x: val, y: t[i] })),
+              backgroundColor: 'blue',
+              pointRadius: 6
+            },
+            {
+              label: 'First Segment Fit (v₁)',
+              data: regLine1,
+              type: 'line',
+              borderColor: 'green',
+              borderWidth: 2,
+              fill: false,
+              pointRadius: 0
+            },
+            {
+              label: 'Second Segment Fit (v₂)',
+              data: regLine2,
+              type: 'line',
+              borderColor: 'red',
+              borderWidth: 2,
+              fill: false,
+              pointRadius: 0
+            }
+          ]
+        },
+        options: {
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Distance (m)'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Time (ms)'
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

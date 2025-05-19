@@ -1,0 +1,230 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    margin-top: 0px;
+
+}
+.card {
+    background-color: #bdcdee;
+    color: #f4f4f4;
+    width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.card img {
+    width: 100%;
+    height: auto;
+}
+.card-contents {
+    padding: 20px;
+}
+.card-contents h3 {
+    margin: 0 0 10px;
+}
+.card-contents p{
+    color: #fff;
+}
+    
+img {
+    width: 100%;
+    margin: 2px;
+    height: 50%;
+
+}
+#countdown {
+    font-size: 2em;
+    color: darkblue;
+}
+marquee {
+
+    color: white;
+    padding: 10px;
+    font-size: 6 px;
+    background-color: #570edf;
+    text-transform: uppercase;
+
+}
+.text {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+}
+h3 {
+    color: blue;
+    text-align: center;
+    text-transform: uppercase;
+}
+h1 {
+    text-transform: uppercase;
+}
+
+header {
+    background-color: blue;
+    color: white;
+    padding: 15 px 0;
+    text-align: center;
+}
+header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+
+}
+b {
+    text-align: center;
+}
+   
+ #tarehe {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+}
+#taarifa-mpya {
+    display: flex;
+    align-items: center;
+    background-color: #FF0000;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+#taarifa-mpya .alama{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 5px;
+
+}
+.hidden {
+    display: none;
+}
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+    text-transform: capitalize;
+
+}
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+section {
+    padding: 20px;
+    background-color: white;
+    margin: 10px 0;
+    border-radius: 8px;
+} 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    border: 1px solid #addd;
+    padding: 10px;
+    text-align: center;
+}
+table th {
+    background-color: #4CAF50;
+    color: white;
+}
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+.card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+  
+  .card {
+    width: 100px;
+    height: 250px;
+    background-color: lightblue;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+/* Individual card style */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 20px;
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card hover effect */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Title and paragraph styling */
+.card h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+/* Link styling */
+.card-link {
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the link */
+.card-link:hover {
+    background-color: #0056b3;
+}
+
+  
+    

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maktaba ya Masomo</title>
+  <style>
+    /* CSS kuunganisha na HTML */
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f7fa;
+    }
+
+    /* Header */
+    header {
+      background-color: #0066cc;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2b1ee4;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      font-size: 1em;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer a {
+      color: #28a745;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      padding: 15px;
+
+      background: #e3e3e3;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    section h2 {
+      margin-top: 0;
+      color: #0066cc;
+      font-size: 1.8em;
+      text-align: center;
+    }
+
+    .note {
+      display: flex;
+      justify-content: space-between;
+      background-color: #fff;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+
+    .actions a {
+      padding: 8px 16px;
+      margin-left: 10px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    .actions a:hover {
+      background-color: #218838;
+    }
+
+    /* Animations for Notes */
+    section {
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Maktaba ya Masomo</h1>
+  </header>
+
+  <div class="container">
+    <h1>Karibu kwenye Maktaba yetu ya Masomo</h1>
+
+    <!-- Geophysics Section -->
+    <section id="geophysics">
+      <h2>Geophysics</h2>
+      <div class="note">
+        <span>Utangulizi wa Geophysics</span>
+        <div class="actions">
+          <a href="GP313_chapter1.pptx" target="_blank" class="view">Soma Hapa</a>
+          <a href="files/Geophysics.pdf" download class="download">Pakua</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programming Section -->
+    <section id="programming">
+      <h2>Programming</h2>
+      <div class="note">
+        <span>JavaScript Basics</span>
+        <div class="actions">
+          <a href="files/JavaScript_Basics.pdf" target="_blank" class="view">Soma Hapa</a>
+          <a href="files/JavaScript_Basics.pdf" download class="download">Pakua</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mathematics Section -->
+    <section id="mathematics">
+      <h2>Mathematics</h2>
+      <div class="note">
+        <span>Calculus Notes</span>
+        <div class="actions">
+          <a href="files/Calculus_Notes.pdf" target="_blank" class="view">Soma Hapa</a>
+          <a href="files/Calculus_Notes.pdf" download class="download">Pakua</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Maktaba ya Masomo | <a href="mailto:mohdsalum782@gmail.com">Wasiliana Nasi</a></p>
+  </footer>
+
+  <script>
+    // JavaScript - Kazi ya ziada
+    document.addEventListener('DOMContentLoaded', function() {
+      alert("Karibu kwenye Maktaba ya Masomo! Chagua somo moja kuona nyaraka.");
+    });
+  </script>
+</body>
+</html>

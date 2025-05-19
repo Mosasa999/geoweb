@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <title>Matangazo Maalum</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #f2f7ff;
+      margin: 0;
+    }
+
+    header {
+      background-color: #1316d6;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    .container {
+      max-width: 100;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .announcement {
+      background-color: white;
+      border-left: 6px solid #004080;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .announcement h3 {
+      margin-top: 0;
+      color: #004080;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .announcement p {
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .date {
+      font-style: italic;
+      font-size: 15px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    .btn-center {
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #004080;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #002f60;
+    }
+
+    footer {
+      background-color: #2a15e6;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 style="text-transform: uppercase;">SPECIaL announcement</h1>
+</header>
+
+<div class="container">
+
+  <!-- Tangazo la 1 -->
+  <div class="announcement"   id="tangazo1">
+    <h3><b>New</b>: Nafasi ya Kazi ya Muda</h3>
+    <p>Kampuni ya TechTanzania inatafuta wahitimu wa IT kwa kazi ya muda ya miezi 3 kuanzia Mei 2025. Wasilisha maombi kwa jobs@techtz.co.tz.</p>
+    <p class="date">Tarehe: 22 Aprili 2025</p>
+    <div class="btn-center">
+      <button onclick="downloadPDF('tangazo1', 'Tangazo_Kazi_April22')">Pakua PDF Hii</button>
+    </div>
+  </div>
+
+  <!-- Tangazo la 2 -->
+  <div class="announcement" id="tangazo2">
+    <h3>Tangazo: Semina ya Ujasiriamali</h3>
+    <p>Semina ya bure ya vijana kuhusu ujasiriamali itafanyika tarehe 25 Aprili 2025, Ukumbi wa Nkrumah. Wote mnakaribishwa.</p>
+    <p class="date">Tarehe: 20 Aprili 2025</p>
+    <div class="btn-center">
+      <button onclick="downloadPDF('tangazo2', 'Tangazo_Semina_April20')">Pakua PDF Hii</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Taarifa Rasmi | Matangazo Maalum
+</footer>
+
+<script>
+  function downloadPDF(id, filename) {
+    const element = document.getElementById(id);
+    html2pdf().set({ filename: filename + '.pdf' }).from(element).save();
+  }
+</script>
+
+</body>
+</html>
+
